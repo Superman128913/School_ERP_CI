@@ -26,7 +26,8 @@ class CheckAuth
             "",
             "#",
             "dashboard",
-            "schools"
+            "schools",
+            "payment"
          );
 
         $Admin = array(

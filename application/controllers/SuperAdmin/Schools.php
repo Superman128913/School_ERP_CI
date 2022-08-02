@@ -54,6 +54,16 @@ class Schools extends CI_Controller {
 
     }
 
+    public function edit($sch_id){
+
+        $data['sch_id'] = $sch_id;
+        $this->load->view('SuperAdmin/schools/edit',$data,TRUE);
+        
+        $this->load->library('layouts');
+        $this->layouts->view('SuperAdmin/schools/edit');
+
+    }
+
 
     public function add(){
         
@@ -67,6 +77,8 @@ class Schools extends CI_Controller {
                 'sch_name' => $data['sch_name'],
                 'sch_city' => $data['sch_city'],
                 'sch_address' => $data['sch_address'],
+                'sch_priciname' => $data['sch_priciname'],    
+                'sch_contactno' => $data['sch_contactno'],
                 'sch_token' => $sch_token
             );
             
@@ -76,6 +88,8 @@ class Schools extends CI_Controller {
             unset($data['sch_name']);
             unset($data['sch_city']);
             unset($data['sch_address']);
+            unset($data['sch_priciname']);
+            unset($data['sch_contactno']);
 
             $digits = 3;
             $digits_2 = 8;

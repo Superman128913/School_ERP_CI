@@ -115,24 +115,26 @@ $use_id = $this->db->get_where('bz_admins', array('sch_id' => $sch_id))->row()->
                                                         ?>
                                                     </td>
                                                 </tr>
+                                                <!-- ////////////modified by Olaf////////////////////// -->
                                                 <tr>
                                                     <td style="text-transform:capitalize;">
-                                                       <b>F:</b> <?php
+                                                       <b>Principal Name:</b> <?php
 
-                                                           echo  $this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_mother_name;
+                                                            echo  $this->db->get_where('bz_schools', array('sch_id' => $sch_id))->row()->sch_priciname;
 
                                                         ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="text-transform:capitalize;">
-                                                       <b>M:</b> <?php
+                                                       <b>Contact No:</b> <?php
 
-                                                           echo  $this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_mother_name;
+                                                            echo  $this->db->get_where('bz_schools', array('sch_id' => $sch_id))->row()->sch_contactno;
 
                                                         ?>
                                                     </td>
                                                 </tr>
+                                                <!-- ////////////modified by Olaf////////////////////// -->
 
                                                 <tr>
                                                     <td style="text-transform:capitalize;">

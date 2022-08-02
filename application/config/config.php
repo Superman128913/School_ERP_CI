@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['base_url']  = "http://localhost/bentzip_a";
+$config['base_url']  = "http://localhost/School_ERP_CI";
 
 
 

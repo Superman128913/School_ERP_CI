@@ -44,6 +44,12 @@
 													<th class="border-bottom-0">City</th>
 													<th class="border-bottom-0">Address</th>
 													<th class="border-bottom-0">Admin Name</th>
+													<!-- ////////////inserted by Olaf////////////////////// -->
+													<th class="border-bottom-0">Principal Name</th>
+													<th class="border-bottom-0">Contact No</th>
+													<th class="border-bottom-0">Status</th>
+													<!-- <th class="border-bottom-0">Website</th> -->
+													<!-- ////////////inserted by Olaf////////////////////// -->
 													<th class="border-bottom-0">Action</th>
 												</tr>
 											</thead>
@@ -69,13 +75,26 @@
 														$this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_lname  
 														?> 
 													</td>
+													<!-- ////////////inserted by Olaf////////////////////// -->
+													<td><?= $row['sch_priciname'] ?></td>
+													<td><?= $row['sch_contactno'] ?></td>
+													
+													<td>
+														<div class="main-toggle main-toggle-success <?php if($row['sch_status'] == 1) echo "on"; else echo ""?>">
+															<div  class="swal-parameter">
+																<span></span>
+															</div>
+														</div>
+													</td>
+													<!-- <td><?= $row['sch_website'] ?></td> -->
+													<!-- ////////////inserted by Olaf////////////////////// -->
                                                     <td>
                                                         <div class="dropdown">
                                                             <button style="padding: 2px 10px;" aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                                             data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                                                             <div  class="dropdown-menu tx-13">
                                                                 <a class="dropdown-item" href="<?php echo base_url('schools/detail/' . $row['sch_id']);?>">View Detail</a>
-                                                                <a class="dropdown-item" href="#">Edit Detail</a>
+                                                                <a class="dropdown-item" href="<?php echo base_url('schools/edit/' . $row['sch_id']);?>">Edit Detail</a>
                                                                 <a class="dropdown-item" href="#">Delete Records</a>
                                                             </div>
                                                         </div>

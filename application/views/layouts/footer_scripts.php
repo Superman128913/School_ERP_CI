@@ -525,6 +525,8 @@
         <script src="<?php echo asset_url();?>js/custom.js"></script>
 
         <!-- Switcher js -->
-		<script src="<?php echo asset_url();?>switcher/js/switcher.js"></script>
+	<script src="<?php echo asset_url();?>switcher/js/switcher.js"></script>
+	<!-- Sweet-alert js -->		
+	<!-- <script src="<?php echo asset_url();?>plugins/sweet-alert/jquery.sweet-alert.js"></script> -->
 </body>
 </html>

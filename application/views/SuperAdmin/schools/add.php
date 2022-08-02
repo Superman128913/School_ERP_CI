@@ -78,7 +78,7 @@
 
                                                     <div class="col-sm-4 form-group">
                                                         <label for="">Middle Name</label>
-                                                        <input required name="use_mname" type="text" class="form-control">
+                                                        <input name="use_mname" type="text" class="form-control">
                                                     </div>
                                                     
                                                     <div class="col-sm-4 form-group">
@@ -111,18 +111,18 @@
                                                 </div>
 
                                                 <div class="row">
-
+                                                <!-- ////////////modified by Olaf////////////////////// -->
                                                     <div class="col-sm-4 form-group">
-                                                        <label for="">Mother Name</label>
-                                                        <input required name="use_mother_name" type="text" class="form-control">
+                                                        <label for="">Principal Name</label>
+                                                        <input required name="sch_priciname" type="text" class="form-control">
                                                     </div>
                                                     
 
                                                     <div class="col-sm-4 form-group">
-                                                        <label for="">Father Name</label>
-                                                        <input required name="use_father_name" type="text" class="form-control">
+                                                        <label for="">Contact No</label>
+                                                        <input required name="sch_contactno" type="text" class="form-control">
                                                     </div>
-                                                    
+                                                 <!-- ////////////modified by Olaf////////////////////// -->   
                                                     <div class="col-sm-4 form-group">
                                                         <label for="">Email</label>
                                                         <input required name="use_email" type="email" class="form-control">
