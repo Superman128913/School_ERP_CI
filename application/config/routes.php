@@ -84,6 +84,7 @@ $route['tickets/post_chat'] = 'SuperAdmin/Tickets/insertChat';
 $route['schools/add'] = 'SuperAdmin/Schools/add';
 $route['schools/detail/(:any)'] = 'SuperAdmin/Schools/detail/$1';
 $route['schools/edit/(:any)'] = 'SuperAdmin/Schools/edit/$1';
+$route['schools/delete/(:any)'] = 'SuperAdmin/Schools/delete/$1';
 $route['schools/act_sus/(:any)'] = 'SuperAdmin/Schools/act_sus/$1';
 
 

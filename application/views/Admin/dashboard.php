@@ -189,7 +189,7 @@
                                             foreach ($result as $ticket): ?>
 										<div class="list-group-item list-group-item-action" href="#">
 											<div class="media mt-0">
-												<img class="avatar-lg rounded-circle mr-3 my-auto" src="<?php echo asset_url()."img/faces/".$ticket['use_image'];?>" alt="Image description">
+												<img class="avatar-lg rounded-circle mr-3 my-auto" src="<?php echo face_url().$ticket['use_image'];?>" alt="Image description">
 												<div class="media-body">
 													<div class="d-flex align-items-center">
 														<div class="mt-0">

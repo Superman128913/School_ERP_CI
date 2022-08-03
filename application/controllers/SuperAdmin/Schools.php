@@ -195,13 +195,7 @@ class Schools extends CI_Controller {
             
             redirect("schools");
 
-        }else{
-
-            $this->load->library('layouts');
-            $this->layouts->view('SuperAdmin/schools/delete/$1');
-
         }
-
     } 
 
     public function section($sec_id){

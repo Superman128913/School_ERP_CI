@@ -42,7 +42,7 @@
 										<div class="main-chat-contacts" id="chatActiveContacts">
 											<?php foreach ($result as $user): ?>
 											<div>
-												<div class="main-img-user"><img alt="" src="<?php echo asset_url()."img/faces/".$user['use_image'];?>"></div><small><?php echo $user['use_fname'];?></small>
+												<div class="main-img-user"><img alt="" src="<?php echo face_url().$user['use_image'];?>"></div><small><?php echo $user['use_fname'];?></small>
 											</div>
                                             <?php endforeach; ?>
                                             <?php $more = $total - $limit;
@@ -61,7 +61,7 @@
                                             foreach ($result as $ticket): ?>
 										<div class="media new tick_list" tick_id="<?php echo $ticket['tick_id'];?>">
 											<div class="main-img-user">
-												<img alt="" src="<?php echo asset_url()."img/faces/".$ticket['use_image'];?>">
+												<img alt="" src="<?php echo face_url().$ticket['use_image'];?>">
 											</div>
 											<div class="media-body">
 												<div class="media-contact-name">

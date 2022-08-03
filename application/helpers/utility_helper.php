@@ -14,6 +14,14 @@ function asset_front(){
 
 }
 
+function face_url(){
+   return base_url().'upload_path/profile/';
+}
+
+function update_url(){
+   return base_url().'upload_path/';
+}
+
 
 
 ?>

@@ -98,7 +98,7 @@
                                                             <div  class="dropdown-menu tx-13">
                                                                 <a class="dropdown-item" href="<?php echo base_url('schools/detail/' . $row['sch_id']);?>">View Detail</a>
                                                                 <a class="dropdown-item" href="<?php echo base_url('schools/edit/' . $row['sch_id']);?>">Edit Detail</a>
-                                                                <a class="dropdown-item" href="<?php echo base_url('schools/delete/' . $row['sch_id']);?>">Delete Records</a>
+                                                                <a class="dropdown-item" onclick="confirm_del('<?php echo base_url('schools/delete/' . $row['sch_id']);?>')">Delete School</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -186,4 +186,4 @@
 
 
 
-	<script src="<?php echo base_url();?>js/SuperAdmin/main.js"></script>
+	<script src="<?php echo base_url();?>js/SuperAdmin/school.js"></script>

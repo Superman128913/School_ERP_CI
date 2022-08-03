@@ -69,7 +69,7 @@
                                                             data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                                                             <div  class="dropdown-menu tx-13">
                                                                 <a class="dropdown-item payment_edit"  data-target="#payment_modal" data-toggle="modal">Edit</a>
-                                                                <a class="dropdown-item" href="#">Delete</a>
+                                                                <a class="dropdown-item" onclick="confirm_del('<?php echo base_url('schools/delete/' . $row['sch_id']);?>')">Delete</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -132,3 +132,4 @@
 
 
 			<script src="<?php echo base_url();?>js/SuperAdmin/payment.js"></script>
+			<script src="<?php echo base_url();?>js/SuperAdmin/school.js"></script>
