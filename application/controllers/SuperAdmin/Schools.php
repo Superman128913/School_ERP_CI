@@ -80,6 +80,7 @@ class Schools extends CI_Controller {
                 'sch_name' => $data['sch_name'],
                 'sch_city' => $data['sch_city'],
                 'sch_address' => $data['sch_address'],
+                'sch_enrollyear' => $data['sch_enrollyear'],
                 'sch_priciname' => $data['sch_priciname'],    
                 'sch_contactno' => $data['sch_contactno'],
                 'sch_token' => $sch_token
@@ -87,17 +88,22 @@ class Schools extends CI_Controller {
             
             $this->ModSchools->AddSchool($school_data);
             
+            $sch_id = $this->db->get_where('bz_schools', array('sch_token' => $school_data['sch_token']))->row()->sch_id;
+
+            $data['use_username'] = $data['sch_name'].str_replace("-", "", $data['sch_enrollyear']).$sch_id;
+            
             unset($data['add']);
             unset($data['sch_name']);
             unset($data['sch_city']);
+            unset($data['sch_enrollyear']);
             unset($data['sch_address']);
             unset($data['sch_priciname']);
             unset($data['sch_contactno']);
 
-            $digits = 3;
+            // $digits = 3;
             $digits_2 = 8;
 
-            $data['use_username'] = rand(pow(10, $digits-1), pow(10, $digits)-1);
+            // $data['use_username'] = rand(pow(10, $digits-1), pow(10, $digits)-1);
 
             $data['use_password'] = rand(pow(10, $digits_2-1), pow(10, $digits_2)-1);
 
@@ -127,6 +133,76 @@ class Schools extends CI_Controller {
         }
 
     }    
+
+    public function update($sch_id){
+        
+        if(isset($_POST['update'])){
+
+            $data = $_POST;
+
+
+            $sch_token = rand(pow(10, 8-1), pow(10, 8)-1);
+
+            $school_data = array(
+                'sch_id' => $sch_id,
+                'sch_name' => $data['sch_name'],
+                'sch_city' => $data['sch_city'],
+                'sch_address' => $data['sch_address'],
+                'sch_enrollyear' => $data['sch_enrollyear'],
+                'sch_priciname' => $data['sch_priciname'],    
+                'sch_contactno' => $data['sch_contactno'],
+                'sch_token' => $sch_token
+            );
+            
+            $this->ModSchools->UpdateSchool($school_data);
+            
+            unset($data['update']);
+            unset($data['sch_name']);
+            unset($data['sch_city']);
+            unset($data['sch_address']);
+            unset($data['sch_enrollyear']);
+            unset($data['sch_priciname']);
+            unset($data['sch_contactno']);
+
+            $use_id = $this->db->get_where('bz_admins', array('sch_id' => $sch_id))->row()->use_id;
+            $data['use_id'] = $use_id;
+
+            $this->ModSchools->UpdateUser($data);
+
+            
+            redirect("schools");
+
+        }else{
+
+            $this->load->library('layouts');
+            $this->layouts->view('SuperAdmin/schools/update/$1');
+
+        }
+
+    }    
+
+    public function delete($sch_id){
+        
+        if($sch_id){
+
+            $this->ModSchools->DeleteSchool($sch_id);
+            
+
+            $use_id = $this->db->get_where('bz_admins', array('sch_id' => $sch_id))->row()->use_id;
+
+            $this->ModSchools->DeleteUser($use_id);
+
+            
+            redirect("schools");
+
+        }else{
+
+            $this->load->library('layouts');
+            $this->layouts->view('SuperAdmin/schools/delete/$1');
+
+        }
+
+    } 
 
     public function section($sec_id){
         $data['sec_id'] = $sec_id;

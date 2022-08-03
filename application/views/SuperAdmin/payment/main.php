@@ -13,11 +13,6 @@
 								<h4 class="content-title mb-0 my-auto">Payments</h4><span class="text-muted mt-1 tx-13 ml-2 mb-0"></span>
 							</div>
 						</div>
-						<div class="d-flex my-xl-auto right-content">
-                            
-                             <a class="btn ripple btn-primary" href="<?= base_url('schools/add'); ?>">  Save </a>
-
-						</div>
 					</div>
 					<!-- breadcrumb -->
 
@@ -60,26 +55,25 @@
                                                 ?>
 
 												<tr>
-													<td><?= $row['sch_id'] ?></td>
+													<td class="text-right"><?= $row['sch_id'] ?></td>
 													<td><?= $row['sch_name'] ?></td>
 													<td><?= $row['sch_city'] ?></td>
 													<td><?= $row['sch_address'] ?></td>
-													<td>$<?= $row['sch_pay_actual'] ?></td>
-													<td>$<?= $row['sch_pay_paid'] ?></td>
-													<td>$<?= $row['sch_pay_pending'] ?></td>
+													<td class="text-right"><?= $row['sch_pay_actual'] ?></td>
+													<td class="text-right"><?= $row['sch_pay_paid'] ?></td>
+													<td class="text-right"><?= $row['sch_pay_pending'] ?></td>
 													
-                                                    <td>
+                                                    <td class="text-center">
                                                         <div class="dropdown">
                                                             <button style="padding: 2px 10px;" aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                                             data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                                                             <div  class="dropdown-menu tx-13">
-                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <a class="dropdown-item payment_edit"  data-target="#payment_modal" data-toggle="modal">Edit</a>
                                                                 <a class="dropdown-item" href="#">Delete</a>
                                                             </div>
                                                         </div>
                                                     </td>
 												</tr>
-
 
 												<?php $j++; endforeach;?>
 											</tbody>
@@ -103,22 +97,32 @@
 			<!-- main-content closed -->
 
             			<!-- Modal effects -->
-			<div class="modal" id="modaldemo8">
+			<div class="modal" id="payment_modal">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content modal-content-demo">
-                    <form method="post" action="<?php base_url('classes'); ?>">
+                    
+                	<?php echo form_open_multipart('payment/edit');?>
 						<div class="modal-header">
-							<h6 class="modal-title">Add Class</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+							<h6 class="modal-title" id="sch_name"></h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
 						</div>
 						<div class="modal-body">
                             <div class="form-group">
-								<label for="class">Class Name</label>
-								<input name="cla_name" type="text" class="form-control" id="class" required placeholder="Enter class name here">
+								<label for="sch_id" hidden>School ID</label>
+								<input name="sch_id" type="text" class="form-control" id="sch_id" hidden>
+								<label for="sch_pay_actual">Actual Payment</label>
+								<input name="sch_pay_actual" type="text" class="form-control" id="sch_pay_actual">
+								<br>
+								<label for="sch_pay_paid">Paid Payment</label>
+								<input name="sch_pay_paid" type="text" class="form-control" id="sch_pay_paid" >
+								<br>
+								<label for="sch_pay_pending">Pending Payment</label>
+								<input name="sch_pay_pending" type="text" class="form-control" id="sch_pay_pending" >
 							</div>
 									
                         </div>
 						<div class="modal-footer">
-							<button  name="addClass" type="submit"  class="btn ripple btn-primary" type="button">Save</button>
+							<button  name="update" type="submit"  class="btn ripple btn-primary" type="button">Save</button>
+							<button  data-dismiss="modal"  class="btn ripple btn-primary" type="button">Cancel</button>
 						</div>
                         </form>
 					</div>
@@ -127,37 +131,4 @@
 			<!-- End Modal effects-->
 
 
-            			<!-- Modal effects -->
-                        <div class="modal" id="modaldemo9">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content modal-content-demo">
-                    <form method="post" action="<?php base_url('classes'); ?>">
-						<div class="modal-header">
-							<h6 class="modal-title">Add Section</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
-						</div>
-						<div class="modal-body">
-                            <div class="form-group">
-								<label for="class">Class Name</label>
-                                <select class="form-control" name="cla_id" required>
-                                    <option value="">-- Select --</option>
-                                    <?php $rec = $this->db->get_where('bz_classes', array('sch_id' => $this->session->userdata['sch_id']))->result_array(); foreach ($rec as $row){ ?>
-                                        <option value="<?= $row['cla_id']; ?>"><?= $row['cla_name']; ?></option>
-                                    <?php } ?>
-                                </select>
-							</div>
-                            <div class="form-group">
-								<label for="class">Section Name</label>
-								<input type="text" name="sec_name" class="form-control" id="class" placeholder="Enter class name here" required>
-							</div>
-									
-                        </div>
-						<div class="modal-footer">
-							<button  type="submit" name="AddSec" class="btn ripple btn-primary" type="button">Save</button>
-						</div>
-                        </form>
-					</div>	
-				</div>
-			</div>
-			<!-- End Modal effects-->
-
-
+			<script src="<?php echo base_url();?>js/SuperAdmin/payment.js"></script>

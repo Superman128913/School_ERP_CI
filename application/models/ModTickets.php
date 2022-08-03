@@ -2,15 +2,17 @@
 
 class ModTickets extends CI_Model {
 
-    public function getTicketList(){
-        $this->db->select('bz_tickets.*, CONCAT(bz_users.use_fname, bz_users.use_mname, bz_users.use_lname) AS use_name, bz_users.use_fname, bz_users.use_image');
-        $this->db->from('bz_tickets');
-        $this->db->join('bz_users','bz_users.use_id = bz_tickets.use_id');
-        $query = $this->db->get();
+    public function getChats($tick_id){
+        $query = $this->db->get_where('bz_ticket_chat', array('tick_id' => $tick_id));
         $result = $query->result_array();
         return $result;
     }
     
-
+    public function insertChat($data){
+        $time = date('Y-m-d H:i:sa');
+        $data['chat_datetime'] = $time;
+        $this->db->insert('bz_ticket_chat', $data);
+        return $time;
+    }
     
 }

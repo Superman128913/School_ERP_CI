@@ -70,6 +70,7 @@ $use_id = $this->db->get_where('bz_admins', array('sch_id' => $sch_id))->row()->
                                                 </tr>
                                             </table>
                                         </div>
+                                        
                                         <div class="col-sm-4">
                                             <table class="table">
                                                 <tr>
@@ -83,6 +84,21 @@ $use_id = $this->db->get_where('bz_admins', array('sch_id' => $sch_id))->row()->
                                                 </tr>
                                             </table>
                                         </div>
+
+                                        <div class="col-sm-4">
+                                            <table class="table">
+                                                <tr>
+                                                <td style="text-transform:capitalize;border:none;">
+                                                      <b>Enrollment Year:</b>  <?= 
+
+                                                            $this->db->get_where('bz_schools', array('sch_id' => $sch_id))->row()->sch_enrollyear;
+
+                                                            ?>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
 									</div><!-- bd -->
 								</div><!-- bd -->
 							</div><!-- bd -->

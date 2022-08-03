@@ -56,6 +56,11 @@
                                                     <label for="">School Address</label>
                                                     <input required name="sch_address" type="text" class="form-control">
                                                 </div>
+
+                                                <div class="col-sm-12 form-group">
+                                                    <label for="">School Enrollment Year</label>
+                                                    <input required name="sch_enrollyear" type="date" class="form-control">
+                                                </div>
                                                 
     
                                             </div>

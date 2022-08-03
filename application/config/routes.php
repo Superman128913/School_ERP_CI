@@ -78,6 +78,9 @@ $route['teachers/detail/(:any)'] = 'Admin/Teachers/detail/$1';
 $route['schools'] = 'SuperAdmin/Schools/index';
 $route['payment'] = 'SuperAdmin/Payment/index';
 $route['tickets'] = 'SuperAdmin/Tickets/index';
+$route['tickets/chats/(:any)'] = 'SuperAdmin/Tickets/getChats/$1';
+$route['tickets/post_chat'] = 'SuperAdmin/Tickets/insertChat';
+
 $route['schools/add'] = 'SuperAdmin/Schools/add';
 $route['schools/detail/(:any)'] = 'SuperAdmin/Schools/detail/$1';
 $route['schools/edit/(:any)'] = 'SuperAdmin/Schools/edit/$1';
@@ -90,7 +93,10 @@ $route['attendance/attendance_data'] = 'Admin/Attendance/attendance_data';
 $route['attendance/mark/2'] = 'Admin/Attendance/mark/2';
 
 
+$route['schools/update/(:any)'] = 'SuperAdmin/Schools/update/$1';
+$route['schools/edit/(:any)'] = 'SuperAdmin/Schools/edit/$1';
 
+$route['payment/edit'] = 'SuperAdmin/Payment/edit';
 
 // Routes for Teachers
 

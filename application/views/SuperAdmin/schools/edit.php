@@ -9,7 +9,9 @@ $use_id = $this->db->get_where('bz_admins', array('sch_id' => $sch_id))->row()->
                 <!-- container -->
 				<div class="container">
 
-                <?php echo form_open_multipart('schools/update');?>
+                <?php 
+
+                echo form_open_multipart('schools/update/' . $sch_id);?>
                     
 					<!-- breadcrumb -->
 					<div class="breadcrumb-header justify-content-between">
@@ -47,18 +49,23 @@ $use_id = $this->db->get_where('bz_admins', array('sch_id' => $sch_id))->row()->
 
                                                 <div class="col-sm-12 form-group">
                                                     <label for="">School Name</label>
-                                                    <input required name="sch_name" type="text" class="form-control" value=<?php echo $this->db->get_where('bz_schools', array('sch_id' => $sch_id))->row()->sch_name?>>
+                                                    <input required name="sch_name" type="text" class="form-control" value="<?php echo $this->db->get_where('bz_schools', array('sch_id' => $sch_id))->row()->sch_name?>">
                                                 </div>
                                                 
 
                                                 <div class="col-sm-12 form-group">
                                                     <label for="">School City</label>
-                                                    <input required name="sch_city" type="text" class="form-control" value=<?php echo $this->db->get_where('bz_schools', array('sch_id' => $sch_id))->row()->sch_city?>>
+                                                    <input required name="sch_city" type="text" class="form-control" value="<?php echo $this->db->get_where('bz_schools', array('sch_id' => $sch_id))->row()->sch_city?>">
                                                 </div>
                                                 
                                                 <div class="col-sm-12 form-group">
                                                     <label for="">School Address</label>
-                                                    <input required name="sch_address" type="text" class="form-control" value=<?php echo $this->db->get_where('bz_schools', array('sch_id' => $sch_id))->row()->sch_address?>>
+                                                    <input required name="sch_address" type="text" class="form-control" value="<?php echo $this->db->get_where('bz_schools', array('sch_id' => $sch_id))->row()->sch_address?>">
+                                                </div>
+
+                                                <div class="col-sm-12 form-group">
+                                                    <label for="">School Enrollment Year</label>
+                                                    <input required name="sch_enrollyear" type="date" class="form-control" value="<?php echo $this->db->get_where('bz_schools', array('sch_id' => $sch_id))->row()->sch_enrollyear?>">
                                                 </div>
                                                 
     
@@ -76,18 +83,18 @@ $use_id = $this->db->get_where('bz_admins', array('sch_id' => $sch_id))->row()->
 
                                                     <div class="col-sm-4 form-group">
                                                         <label for="">First Name</label>
-                                                        <input required name="use_fname" type="text" class="form-control" value=<?php echo $this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_fname?>>
+                                                        <input required name="use_fname" type="text" class="form-control" value="<?php echo $this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_fname?>">
                                                     </div>
                                                     
 
                                                     <div class="col-sm-4 form-group">
                                                         <label for="">Middle Name</label>
-                                                        <input name="use_mname" type="text" class="form-control" value=<?php echo $this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_mname?>>
+                                                        <input name="use_mname" type="text" class="form-control" value="<?php echo $this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_mname?>">
                                                     </div>
                                                     
                                                     <div class="col-sm-4 form-group">
                                                         <label for="">Last Name</label>
-                                                        <input required name="use_lname" type="text" class="form-control" value=<?php echo $this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_lname?>>
+                                                        <input required name="use_lname" type="text" class="form-control" value="<?php echo $this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_lname?>">
                                                     </div>
                                                     
                                                 </div>
@@ -95,13 +102,13 @@ $use_id = $this->db->get_where('bz_admins', array('sch_id' => $sch_id))->row()->
 
                                                     <div class="col-sm-4 form-group">
                                                         <label for="">Date of Birthday</label>
-                                                        <input required name="use_birthday" type="date" class="form-control" value=<?php echo $this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_birthday?>>
+                                                        <input required name="use_birthday" type="date" class="form-control" value="<?php echo $this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_birthday?>">
                                                     </div>
                                                     
 
                                                     <div class="col-sm-4 form-group">
                                                         <label for="">Gender</label>
-                                                        <select required name="use_gender" class="form-control" value=<?php echo $this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_gender?>>
+                                                        <select required name="use_gender" class="form-control" value="<?php echo $this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_gender?>">
                                                             <option value="male">Male</option>
                                                             <option value="female">Female</option>
                                                         </select>
@@ -109,7 +116,7 @@ $use_id = $this->db->get_where('bz_admins', array('sch_id' => $sch_id))->row()->
                                                     
                                                     <div class="col-sm-4 form-group">
                                                         <label for="">Address</label>
-                                                        <input required name="use_address" type="text" class="form-control" value=<?php echo $this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_address?>>
+                                                        <input required name="use_address" type="text" class="form-control" value="<?php echo $this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_address?>">
                                                     </div>
                                                     
                                                 </div>
@@ -118,18 +125,18 @@ $use_id = $this->db->get_where('bz_admins', array('sch_id' => $sch_id))->row()->
                                                 <!-- ////////////modified by Olaf////////////////////// -->
                                                     <div class="col-sm-4 form-group">
                                                         <label for="">Principal Name</label>
-                                                        <input required name="sch_priciname" type="text" class="form-control" value=<?php echo $this->db->get_where('bz_schools', array('sch_id' => $sch_id))->row()->sch_priciname?>>
+                                                        <input required name="sch_priciname" type="text" class="form-control" value="<?php echo $this->db->get_where('bz_schools', array('sch_id' => $sch_id))->row()->sch_priciname?>">
                                                     </div>
                                                     
 
                                                     <div class="col-sm-4 form-group">
                                                         <label for="">Contact No</label>
-                                                        <input required name="sch_contactno" type="text" class="form-control" value=<?php echo $this->db->get_where('bz_schools', array('sch_id' => $sch_id))->row()->sch_contactno?>>
+                                                        <input required name="sch_contactno" type="text" class="form-control" value="<?php echo $this->db->get_where('bz_schools', array('sch_id' => $sch_id))->row()->sch_contactno?>">
                                                     </div>
                                                  <!-- ////////////modified by Olaf////////////////////// -->   
                                                     <div class="col-sm-4 form-group">
                                                         <label for="">Email</label>
-                                                        <input required name="use_email" type="email" class="form-control" value=<?php echo $this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_email?>>
+                                                        <input required name="use_email" type="email" class="form-control" value="<?php echo $this->db->get_where('bz_users', array('use_id' => $use_id))->row()->use_email?>">
                                                     </div>
                                                     
                                                 </div>

@@ -19,28 +19,21 @@ class Tickets extends CI_Controller {
     
 	public function index()
 	{
-        if(isset($_POST['add'])){
-
-            $data = $_POST;
-            unset($data['add']);
-            $data['sch_id'] = $this->session->userdata['sch_id'];
-            $this->ModClasses->AddClass($data);
-            redirect("classes");
-
-        }elseif(isset($_POST['AddSec'])){
-
-            $data = $_POST;
-            unset($data['AddSec']);
-
-            $this->ModClasses->AddSec($data);
-
-            redirect("classes");
-        }else{
-            $this->load->library('layouts');
-            $ticket_list = $this->ModTickets->getTicketList();
-            $context['ticket_list'] = $ticket_list;
-            $this->layouts->view('SuperAdmin/tickets/main', $context);
-        }
+        $this->load->library('layouts');
+        $this->layouts->view('SuperAdmin/tickets/main');
 	}
+
+    public function getChats($tick_id)
+    {
+        $chat_list = $this->ModTickets->getChats($tick_id);
+        echo json_encode($chat_list);
+    }
+
+    public function insertChat()
+    {
+        $data = $_POST;
+        $time = $this->ModTickets->insertChat($data);
+        echo json_encode($time);
+    }
     
 }

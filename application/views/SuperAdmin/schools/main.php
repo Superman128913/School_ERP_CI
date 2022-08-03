@@ -63,7 +63,7 @@
                                                 ?>
 
 												<tr>
-													<td><?= $row['sch_id'] ?></td>
+													<td class="text-right"><?= $row['sch_id'] ?></td>
 													<td><?= $row['sch_name'] ?></td>
 													<td><?= $row['sch_city'] ?></td>
 													<td><?= $row['sch_address'] ?></td>
@@ -71,34 +71,34 @@
                                                         <?php 
 															$admin = $this->db->get_where('bz_admins', array('sch_id' => $row['sch_id']))->row();
 															$use_id = $admin->use_id;
+															$user = $this->db->get_where('bz_users', array('use_id' => $use_id))->row();
 														?>
                                                         <?= 
-															$admin->use_id->use_fname . " " . 
-															$admin->use_id->use_mname . " " . 
-															$admin->use_id->use_lname  
+															$user->use_fname . " " . 
+															$user->use_mname . " " . 
+															$user->use_lname  
 														?> 
 													</td>
 													<!-- ////////////inserted by Olaf////////////////////// -->
 													<td><?= $row['sch_priciname'] ?></td>
-													<td><?= $row['sch_contactno'] ?></td>
+													<td class="text-center"><?= $row['sch_contactno'] ?></td>
 													
-													<td>
+													<td class="text-center">
 														<div class="main-toggle main-toggle-success <?php if($row['sch_status'] == 1) echo "on"; else echo ""?>">
 															<div>
 																<span></span>
 															</div>
 														</div>
 													</td>
-													<!-- <td><?= $row['sch_website'] ?></td> -->
 													<!-- ////////////inserted by Olaf////////////////////// -->
-                                                    <td>
+                                                    <td class="text-center">
                                                         <div class="dropdown">
                                                             <button style="padding: 2px 10px;" aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                                             data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                                                             <div  class="dropdown-menu tx-13">
                                                                 <a class="dropdown-item" href="<?php echo base_url('schools/detail/' . $row['sch_id']);?>">View Detail</a>
                                                                 <a class="dropdown-item" href="<?php echo base_url('schools/edit/' . $row['sch_id']);?>">Edit Detail</a>
-                                                                <a class="dropdown-item" href="#">Delete Records</a>
+                                                                <a class="dropdown-item" href="<?php echo base_url('schools/delete/' . $row['sch_id']);?>">Delete Records</a>
                                                             </div>
                                                         </div>
                                                     </td>

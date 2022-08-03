@@ -89,6 +89,10 @@
                 width: 37px;
                 height: 37px;
             }
+
+            thead tr th {
+                text-align: center;
+            }
         </style>
         <!-- JQuery min js -->
         <script src="<?php echo asset_url();?>plugins/jquery/jquery.min.js"></script>
