@@ -77,9 +77,11 @@ $route['teachers/detail/(:any)'] = 'Admin/Teachers/detail/$1';
 
 $route['schools'] = 'SuperAdmin/Schools/index';
 $route['payment'] = 'SuperAdmin/Payment/index';
+$route['tickets'] = 'SuperAdmin/Tickets/index';
 $route['schools/add'] = 'SuperAdmin/Schools/add';
 $route['schools/detail/(:any)'] = 'SuperAdmin/Schools/detail/$1';
 $route['schools/edit/(:any)'] = 'SuperAdmin/Schools/edit/$1';
+$route['schools/act_sus/(:any)'] = 'SuperAdmin/Schools/act_sus/$1';
 
 
 $route['attendance/mark'] = 'Admin/Attendance/mark';

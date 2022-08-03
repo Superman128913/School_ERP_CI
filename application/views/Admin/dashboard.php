@@ -442,3 +442,7 @@
 
 			</div>
 			<!-- main-content closed -->
+
+			
+	<!--Internal Apexchart js-->
+	<script src="<?php echo asset_url();?>js/apexcharts.js"></script>

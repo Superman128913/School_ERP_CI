@@ -414,9 +414,6 @@
                     <!-- Back-to-top -->
         <a href="#top" id="back-to-top"><i class="las la-angle-double-up"></i></a>
 
-        <!-- JQuery min js -->
-        <script src="<?php echo asset_url();?>plugins/jquery/jquery.min.js"></script>
-
         <!-- Bootstrap js -->
         <script src="<?php echo asset_url();?>plugins/bootstrap/js/popper.min.js"></script>
         <script src="<?php echo asset_url();?>plugins/bootstrap/js/bootstrap.js"></script>
@@ -457,9 +454,6 @@
 
 		<!-- Raphael js -->
 		<script src="<?php echo asset_url();?>plugins/raphael/raphael.min.js"></script>
-
-		<!--Internal Apexchart js-->
-		<script src="<?php echo asset_url();?>js/apexcharts.js"></script>
 
 		<!-- Internal Map -->
 		<script src="<?php echo asset_url();?>plugins/jqvmap/jquery.vmap.min.js"></script>
@@ -525,8 +519,9 @@
         <script src="<?php echo asset_url();?>js/custom.js"></script>
 
         <!-- Switcher js -->
-	<script src="<?php echo asset_url();?>switcher/js/switcher.js"></script>
-	<!-- Sweet-alert js -->		
-	<!-- <script src="<?php echo asset_url();?>plugins/sweet-alert/jquery.sweet-alert.js"></script> -->
+		<script src="<?php echo asset_url();?>switcher/js/switcher.js"></script>
+
+		<!-- Sweet-alert js -->		
+		<script src="<?php echo asset_url();?>plugins/sweet-alert/sweetalert.min.js"></script>
 </body>
 </html>

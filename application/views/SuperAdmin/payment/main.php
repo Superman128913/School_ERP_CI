@@ -10,12 +10,12 @@
 					<div class="breadcrumb-header justify-content-between">
 						<div class="my-auto">
 							<div class="d-flex">
-								<h4 class="content-title mb-0 my-auto">Schools</h4><span class="text-muted mt-1 tx-13 ml-2 mb-0"></span>
+								<h4 class="content-title mb-0 my-auto">Payments</h4><span class="text-muted mt-1 tx-13 ml-2 mb-0"></span>
 							</div>
 						</div>
 						<div class="d-flex my-xl-auto right-content">
                             
-                             <a class="btn ripple btn-primary" href="<?= base_url('schools/add'); ?>"><i class="typcn typcn-plus"></i>  Register Schools </a>
+                             <a class="btn ripple btn-primary" href="<?= base_url('schools/add'); ?>">  Save </a>
 
 						</div>
 					</div>
@@ -29,7 +29,7 @@
 							<div class="card mg-b-20">
 								<div class="card-header pb-0">
 									<div class="d-flex justify-content-between">
-										<h4 class="card-title mg-b-0">Schools List</h4>
+										<h4 class="card-title mg-b-0">Payment List</h4>
 										<i class="mdi mdi-dots-horizontal text-gray"></i>
 									</div>
 									<p class="tx-12 tx-gray-500 mb-2">Example Example Example Example Example </p>
@@ -43,13 +43,10 @@
 													<th class="border-bottom-0">Name</th>
 													<th class="border-bottom-0">City</th>
 													<th class="border-bottom-0">Address</th>
-													<th class="border-bottom-0">Admin Name</th>
-													<!-- ////////////inserted by Olaf////////////////////// -->
-													<th class="border-bottom-0">Principal Name</th>
-													<th class="border-bottom-0">Contact No</th>
-													<th class="border-bottom-0">Status</th>
+													<th class="border-bottom-0">Actual Payment</th>
+													<th class="border-bottom-0">Paid Payment</th>
+													<th class="border-bottom-0">Pending Payment</th>
 													<!-- <th class="border-bottom-0">Website</th> -->
-													<!-- ////////////inserted by Olaf////////////////////// -->
 													<th class="border-bottom-0">Action</th>
 												</tr>
 											</thead>
@@ -67,38 +64,17 @@
 													<td><?= $row['sch_name'] ?></td>
 													<td><?= $row['sch_city'] ?></td>
 													<td><?= $row['sch_address'] ?></td>
-													<td>
-                                                        <?php 
-															$admin = $this->db->get_where('bz_admins', array('sch_id' => $row['sch_id']))->row();
-															$use_id = $admin->use_id;
-														?>
-                                                        <?= 
-															$admin->use_id->use_fname . " " . 
-															$admin->use_id->use_mname . " " . 
-															$admin->use_id->use_lname  
-														?> 
-													</td>
-													<!-- ////////////inserted by Olaf////////////////////// -->
-													<td><?= $row['sch_priciname'] ?></td>
-													<td><?= $row['sch_contactno'] ?></td>
+													<td>$<?= $row['sch_pay_actual'] ?></td>
+													<td>$<?= $row['sch_pay_paid'] ?></td>
+													<td>$<?= $row['sch_pay_pending'] ?></td>
 													
-													<td>
-														<div class="main-toggle main-toggle-success <?php if($row['sch_status'] == 1) echo "on"; else echo ""?>">
-															<div>
-																<span></span>
-															</div>
-														</div>
-													</td>
-													<!-- <td><?= $row['sch_website'] ?></td> -->
-													<!-- ////////////inserted by Olaf////////////////////// -->
                                                     <td>
                                                         <div class="dropdown">
                                                             <button style="padding: 2px 10px;" aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                                             data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                                                             <div  class="dropdown-menu tx-13">
-                                                                <a class="dropdown-item" href="<?php echo base_url('schools/detail/' . $row['sch_id']);?>">View Detail</a>
-                                                                <a class="dropdown-item" href="<?php echo base_url('schools/edit/' . $row['sch_id']);?>">Edit Detail</a>
-                                                                <a class="dropdown-item" href="#">Delete Records</a>
+                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <a class="dropdown-item" href="#">Delete</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -185,5 +161,3 @@
 			<!-- End Modal effects-->
 
 
-
-	<script src="<?php echo base_url();?>js/SuperAdmin/main.js"></script>

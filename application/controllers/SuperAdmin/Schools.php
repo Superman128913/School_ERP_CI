@@ -42,7 +42,10 @@ class Schools extends CI_Controller {
         
 	}
 
-
+    public function act_sus($sch_id){
+        $this->ModSchools->updateState($sch_id);
+        echo "OK";
+    }
 
     public function detail($sch_id){
 
