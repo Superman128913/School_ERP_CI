@@ -14,7 +14,7 @@ $(function(e) {
             cancelButtonText: "No, cancel!",
             confirmButtonText: "Yes, " + btn_txt + " it!",
             closeOnConfirm: false,
-            closeOnCancel: false
+            closeOnCancel: true
         },
         function(isConfirm) {
             if (isConfirm) {            
@@ -40,3 +40,22 @@ $(function(e) {
         });
     });
 });
+
+var confirm_del = function(url){    
+    swal({
+        title: "Are you sure?",
+        text: "This school will be deleted!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonClass: "btn-danger",
+        cancelButtonText: "No, cancel!",
+        confirmButtonText: "Yes, delete it!",
+        closeOnConfirm: false,
+        closeOnCancel: true
+    },
+    function(isConfirm) {
+        if (isConfirm) {  
+            window.location.href = url;
+        }
+    });
+}
